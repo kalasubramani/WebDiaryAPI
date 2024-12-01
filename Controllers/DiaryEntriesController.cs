@@ -52,7 +52,38 @@ namespace WebDiaryAPI.Controllers
             await _context.SaveChangesAsync();
 
             var resourceUrl = Url.Action(nameof(GetDiaryEntryById), new { id = diaryEntry.Id });
-            return Created(resourceUrl,diaryEntry);
+            return Created(resourceUrl, diaryEntry);
         }
+
+        //update an item in db
+        //PUT : /api/DiaryEntries/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateDiaryEntry(int id, [FromBody] DiaryEntry diaryEntry)
+        {
+            //[FromBody] - parameter binding. Binds the params from req.body to DiaryEntry obj
+            //handled by Entity framework- deserialize JSON and into obj
+            if (id != diaryEntry.Id) return BadRequest(); //send 400 response if IDs mismatch
+
+            //update the db with the data for given id
+            //marks diaryentry as modified in db context. Tells entity framework to update this in db 
+            _context.Entry(diaryEntry).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException) {
+                if (!DiaryEntryExists(id)) return NotFound();
+                else throw;
+            }
+            return NoContent();//code 204 - update successful
+        }
+
+        //helps to throw a more precise error message
+        private bool DiaryEntryExists(int id)
+        {
+            return _context.DiaryEntries.Any(e => e.Id == id);
+        }
+
     }
 }

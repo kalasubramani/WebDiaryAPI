@@ -72,6 +72,27 @@
     ]
   },
   {
+    "ContainingType": "WebDiaryAPI.Controllers.DiaryEntriesController",
+    "Method": "UpdateDiaryEntry",
+    "RelativePath": "api/DiaryEntries/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "diaryEntry",
+        "Type": "WebDiaryAPI.Models.DiaryEntry",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebDiaryAPI.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
