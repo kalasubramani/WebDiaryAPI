@@ -20,12 +20,14 @@ namespace WebDiaryAPI.Controllers
 
         //make it async so that the main thread is not blocked and request is handled more efficiently
         [HttpGet]
+        //GET: api/DiaryEntries
         public async Task<ActionResult<IEnumerable<DiaryEntry>>> GetDiaryEntries()
         {
             return await _context.DiaryEntries.ToListAsync();
         }
 
         //get a specific diary entry from DB
+        //GET: api/DiaryEntries/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<DiaryEntry>> GetDiaryEntryById(int id)
         {
@@ -35,6 +37,22 @@ namespace WebDiaryAPI.Controllers
             if (diaryEntry == null) return NotFound(); //because ActionREsult wraps both diaryentry or action result
 
             return diaryEntry;
+        }
+
+        //create an item in db
+        //POST:api/DiaryEntries
+        [HttpPost]
+        public async Task<ActionResult<DiaryEntry>> PostDiaryEntry(DiaryEntry diaryEntry)
+        {
+            //check if id is 0 so that a new ID will be generated while inserting the record in db
+            diaryEntry.Id = 0;
+
+            _context.DiaryEntries.Add(diaryEntry);
+
+            await _context.SaveChangesAsync();
+
+            var resourceUrl = Url.Action(nameof(GetDiaryEntryById), new { id = diaryEntry.Id });
+            return Created(resourceUrl,diaryEntry);
         }
     }
 }

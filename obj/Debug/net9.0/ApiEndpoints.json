@@ -21,6 +21,32 @@
   },
   {
     "ContainingType": "WebDiaryAPI.Controllers.DiaryEntriesController",
+    "Method": "PostDiaryEntry",
+    "RelativePath": "api/DiaryEntries",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "diaryEntry",
+        "Type": "WebDiaryAPI.Models.DiaryEntry",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "WebDiaryAPI.Models.DiaryEntry",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebDiaryAPI.Controllers.DiaryEntriesController",
     "Method": "GetDiaryEntryById",
     "RelativePath": "api/DiaryEntries/{id}",
     "HttpMethod": "GET",
