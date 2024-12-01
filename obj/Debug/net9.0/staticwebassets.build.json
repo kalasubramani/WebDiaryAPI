@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "w817US5HREGXd4jnZRuGrVc0UrTL0P/H88ROkgGMMXA=",
+  "Source": "WebDiaryAPI",
+  "BasePath": "_content/WebDiaryAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
