@@ -25,5 +25,16 @@ namespace WebDiaryAPI.Controllers
             return await _context.DiaryEntries.ToListAsync();
         }
 
+        //get a specific diary entry from DB
+        [HttpGet("{id}")]
+        public async Task<ActionResult<DiaryEntry>> GetDiaryEntryById(int id)
+        {
+            //get data from db and filter it
+            var diaryEntry = await _context.DiaryEntries.FindAsync(id);//when async varition of the meth is used, the return type must be a Task<>
+
+            if (diaryEntry == null) return NotFound(); //because ActionREsult wraps both diaryentry or action result
+
+            return diaryEntry;
+        }
     }
 }
