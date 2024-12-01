@@ -156,3 +156,4 @@ C:\Users\kalay\.net\WebDiaryAPI\WebDiaryAPI\bin\Debug\net9.0\runtimes\win\lib\ne
 C:\Users\kalay\.net\WebDiaryAPI\WebDiaryAPI\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\kalay\.net\WebDiaryAPI\WebDiaryAPI\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\kalay\.net\WebDiaryAPI\WebDiaryAPI\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\kalay\.net\WebDiaryAPI\WebDiaryAPI\obj\Debug\net9.0\WebDiaryAPI.sourcelink.json
